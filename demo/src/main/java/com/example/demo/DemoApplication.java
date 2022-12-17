@@ -25,5 +25,14 @@ public class DemoApplication {
 		return String.format("Hello %s!", name);
 
 	}
+
+	@GetMapping("/person")
+	public Person person (@RequestParam(value = "name", defaultValue = "World") String name){
+		String greeting = String.format("Hello %s!", name);
+		Person person = new Person();
+		person.setName(name);
+		person.setGreeting(greeting);
+		return person;
+	}
 }
 
